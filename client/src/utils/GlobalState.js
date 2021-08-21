@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { useProductReducer } from './reducers';
+import { useProductReducer, reducer } from './reducers';
 
 // create container to hold global state data and functionality
 const StoreContext = createContext();
