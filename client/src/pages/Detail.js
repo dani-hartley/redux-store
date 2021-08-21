@@ -5,15 +5,16 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
 
-import { useStoreContext } from '../utils/GlobalState';
 import { UPDATE_PRODUCTS, ADD_TO_CART, UPDATE_CART_QUANTITY, REMOVE_FROM_CART } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 
 import Cart from '../components/Cart';
 import { parse } from 'graphql';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Detail() {
-  const [state, dispatch] = useStoreContext();
+  const state = useSelector(store => store);
+  const dispatch = useDispatch();
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
